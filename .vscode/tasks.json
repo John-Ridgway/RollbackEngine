@@ -1,0 +1,51 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "configure-native",
+            "type": "shell",
+            "command": "cmake -S . -B build",
+            "problemMatcher": []
+        },
+        {
+            "label": "build-native",
+            "type": "shell",
+            "command": "cmake --build build -j",
+            "problemMatcher": [],
+            "dependsOn": "configure-native"
+        },
+        {
+            "label": "configure-windows-cross",
+            "type": "shell",
+            "command": "cmake -S . -B build-win -DCMAKE_TOOLCHAIN_FILE=./toolchains/toolchain-windows.cmake",
+            "problemMatcher": [],
+            "dependsOn": "build-native"
+        },
+        {
+            "label": "build-windows-cross",
+            "type": "shell",
+            "command": "cmake --build build-win -j",
+            "problemMatcher": [],
+            "dependsOn": "configure-windows-cross"
+        },
+        {
+            "label": "copy-sdl3-dll",
+            "type": "shell",
+            "command": "cp ./deps/sdl/win/bin/SDL3.dll ./build-win",
+            "problemMatcher": [],
+            "dependsOn": "build-windows-cross"
+        },
+        {
+            "label": "build-all",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "configure-native",
+                "build-native",
+                "configure-windows-cross",
+                "build-windows-cross",
+                "copy-sdl3-dll"
+            ],
+            "problemMatcher": []
+        }
+    ]
+}
