@@ -2,8 +2,8 @@
 set -euo pipefail
 cd ..
 ROOT_DIR="$(pwd)"
-rm -rf "$ROOT_DIR/bootstrap.log"
-LOG_FILE="$ROOT_DIR/bootstrap.log"
+rm -rf "$ROOT_DIR/setup/bootstrap.log"
+LOG_FILE="$ROOT_DIR/setup/bootstrap.log"
 exec > >(tee -a "$LOG_FILE") 2>&1
 DEPS_DIR="$ROOT_DIR/deps"
 VENDOR_DIR="$ROOT_DIR/vendor"
