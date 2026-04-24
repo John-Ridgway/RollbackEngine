@@ -54,7 +54,7 @@ _Linux_
 ./build/RollbackEngine
 ```
 
-_Windows_[^1]
+_Windows_ [^1]
 ```
 wine ./build-win/RollbackEngine.exe
 ```
@@ -66,7 +66,7 @@ Nothing fancy for now. A simple window initialization for testing that the libra
 ## Notes
 
 - This application is being developed in WSL2 for now.
-- [^1]wine is not included as a necessary dependency in the bootstrapper, if you wish to test Windows compiles without leaving your Linux environment, you will need to add it:
+[^1]: wine is not included as a necessary dependency in the bootstrapper, if you wish to test Windows compiles without leaving your Linux environment, you will need to add it:
 ```
 sudo apt-get install wine -y
 ```
