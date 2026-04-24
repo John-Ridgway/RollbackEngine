@@ -10,15 +10,21 @@ A "Linux-First" Game Engine
 
 First, pull the Repository:
 
-`git pull https://github.com/John-Ridgway/RollbackEngine.git`
+```
+git pull https://github.com/John-Ridgway/RollbackEngine.git
+```
 
 Navigate to the Setup directory:
 
-`cd RollbackEngine/Setup`
+```
+cd RollbackEngine/Setup
+```
 
 Run the Bootstrapper*:
 
-`./run-bootstrap.sh`
+```
+./run-bootstrap.sh
+```
 
 _*you will need root privilege for this_
 
@@ -27,12 +33,14 @@ VS Code tasks have been included with this repository. To compile in VS Code for
 >CTRL+SHIFT+P -> Run Task -> Build All
 
 If you aren't using VS Code, in your terminal from the Project root (e.g. /RollbackEngine) run the following commands:
+
+_Linux_
 ```
-//Linux
 cmake -S . -B build
 cmake --build build -j
-
-//Windows
+```
+_Windows_
+```
 cmake -S . -B build-win -DCMAKE_TOOLCHAIN_FILE=./toolchains/toolchain-windows.cmake
 cmake --build build-win -j
 cp ./deps/sdl/win/bin/SDL3.dll ./build-win
