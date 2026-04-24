@@ -51,3 +51,11 @@ _*For windows we need to copy the SDL3 dll_
 
 Nothing fancy for now. A simple window initialization for testing that the libraries are compiling correctly.
 
+## Notes
+
+- This application is being developed in WSL2 for now.
+- wine is not included as a necessary dependency in the bootstrapper, if you wish to test Windows compiles without leaving your Linux environment, you will need to add it
+- ```
+  sudo apt-get install wine -y
+  ```
+
