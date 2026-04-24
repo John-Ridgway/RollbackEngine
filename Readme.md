@@ -14,10 +14,10 @@ First, pull the Repository:
 git pull https://github.com/John-Ridgway/RollbackEngine.git
 ```
 
-Navigate to the Setup directory:
+Navigate to the setup directory:
 
 ```
-cd RollbackEngine/Setup
+cd RollbackEngine/setup
 ```
 
 Run the Bootstrapper*:
