@@ -11,7 +11,7 @@ A "Linux-First" Game Engine
 First, pull the Repository:
 
 ```
-git pull https://github.com/John-Ridgway/RollbackEngine.git
+git clone https://github.com/John-Ridgway/RollbackEngine.git
 ```
 
 Navigate to the setup directory:
