@@ -5,6 +5,11 @@ A "Linux-First"[^1] Game Engine
     - Maybe other platforms in the future
 - Aims to bring convenience to Game Development for Linux without sacrificing access to other platforms
 
+## Requirements
+1. C++ build tools
+   - This application was primarily configured with MinGW in mind
+2. Python 3.11
+
 ## *Quick Start Guide*
 #### __Linux__
 
