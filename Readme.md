@@ -1,5 +1,5 @@
 # **Rollback Engine**
-A "Linux-First" Game Engine
+A "Linux-First"[^*] Game Engine
 - Includes modern features like SDL3 and Vulkan
 - Ability to Cross-Compile for Windows by default
     - Maybe other platforms in the future
@@ -64,8 +64,6 @@ wine ./build-win/RollbackEngine.exe
 
 Nothing fancy for now. A simple window initialization for testing that the libraries are compiling correctly.
 
-## Notes
-
-- This application is being developed in WSL2 for now.
-[^*]: wine is not included as a necessary dependency in the bootstrapper, if you wish to test Windows compiles without leaving your Linux environment, you will need to add it:
+[^*]: This application is being developed in WSL2 for now.
+[^*]: wine is not included as a necessary dependency in the bootstrapper, if you wish to test Windows compiles without leaving your Linux environment, you will need to add it.
 
