@@ -8,7 +8,7 @@ A "Linux-First" Game Engine
 ## *Quick Start Guide*
 #### __Linux__
 
-First, pull the Repository:
+First, clone the Repository:
 
 ```
 git clone https://github.com/John-Ridgway/RollbackEngine.git
