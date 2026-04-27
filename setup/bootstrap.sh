@@ -32,6 +32,7 @@ sudo apt-get install -y \
   clang lld ccache \
   mingw-w64 \
   build-essential \
+  python3.11 \
   libasound2-dev libpulse-dev libaudio-dev \
   libx11-dev libxext-dev libxrandr-dev libxcursor-dev \
   libxfixes-dev libxi-dev libxss-dev libxtst-dev \
