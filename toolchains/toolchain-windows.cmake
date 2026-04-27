@@ -1,47 +1,35 @@
-# =========================
-# Windows MinGW Toolchain
-# =========================
-
 set(CMAKE_SYSTEM_NAME Windows)
 set(CMAKE_SYSTEM_PROCESSOR x86_64)
 
-# -------------------------
-# Compilers
-# -------------------------
-set(CMAKE_C_COMPILER x86_64-w64-mingw32-gcc)
-set(CMAKE_CXX_COMPILER x86_64-w64-mingw32-g++)
+set(CMAKE_C_COMPILER clang)
+set(CMAKE_CXX_COMPILER clang++)
 
-# -------------------------
-# Static runtime (recommended)
-# -------------------------
-set(CMAKE_C_FLAGS_INIT "-static-libgcc")
-set(CMAKE_CXX_FLAGS_INIT "-static-libgcc -static-libstdc++")
+set(CMAKE_C_COMPILER_TARGET x86_64-w64-windows-gnu)
+set(CMAKE_CXX_COMPILER_TARGET x86_64-w64-windows-gnu)
 
-# -------------------------
-# Project-local SDK root
-# -------------------------
-# This is the BIG fix: point to your deps/ folder
+set(CMAKE_RC_COMPILER x86_64-w64-mingw32-windres)
+
+set(MINGW_SYSROOT /usr/x86_64-w64-mingw32)
+
+# Project dependencies (cross-built)
 set(PROJECT_DEPS_ROOT "${CMAKE_CURRENT_LIST_DIR}/../deps")
 
-# Windows-specific installs of SDL/Vulkan
 set(CMAKE_FIND_ROOT_PATH
-    /usr/x86_64-w64-mingw32
+    ${MINGW_SYSROOT}
     "${PROJECT_DEPS_ROOT}/sdl/win"
     "${PROJECT_DEPS_ROOT}/vulkan/win"
 )
 
-# -------------------------
-# Cross build search rules
-# -------------------------
 set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
 set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
 set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
 set(CMAKE_FIND_ROOT_PATH_MODE_PACKAGE ONLY)
 
-# -------------------------
-# Helpful prefix path
-# -------------------------
+# Helps find_package() behave correctly
 list(APPEND CMAKE_PREFIX_PATH
     "${PROJECT_DEPS_ROOT}/sdl/win"
     "${PROJECT_DEPS_ROOT}/vulkan/win"
 )
+
+set(CMAKE_C_FLAGS_INIT "")
+set(CMAKE_CXX_FLAGS_INIT "-static-libstdc++ -static-libgcc")

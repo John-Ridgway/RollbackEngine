@@ -25,18 +25,18 @@ echo "== Installing system dependencies =="
 sudo apt-get update && sudo apt-get upgrade -y
 
 sudo apt-get install -y \
-  cmake build-essential git make pkg-config ninja-build \
-  mingw-w64 mingw-w64-tools \
-  gnome-desktop-testing \
+  cmake ninja-build git pkg-config \
+  clang lld ccache \
+  mingw-w64 \
+  build-essential \
   libasound2-dev libpulse-dev libaudio-dev \
-  libfribidi-dev libjack-dev libsndio-dev \
   libx11-dev libxext-dev libxrandr-dev libxcursor-dev \
   libxfixes-dev libxi-dev libxss-dev libxtst-dev \
   libxkbcommon-dev libdrm-dev libgbm-dev \
   libgl1-mesa-dev libgles2-mesa-dev libegl1-mesa-dev \
   libdbus-1-dev libibus-1.0-dev libudev-dev libthai-dev \
-  libunwind-dev libusb-1.0-0-dev libavcodec-dev \
-  libavformat-dev libavutil-dev libswscale-dev
+  libunwind-dev libusb-1.0-0-dev \
+  libavcodec-dev libavformat-dev libavutil-dev libswscale-dev
 
 # --------------------------------------
 # SDL
@@ -92,6 +92,9 @@ cmake -S . -B build-win \
   -DCMAKE_TOOLCHAIN_FILE=../../toolchains/toolchain-windows.cmake \
   -DUPDATE_DEPS=ON \
   -DCMAKE_INSTALL_PREFIX="$VULKAN_PREFIX/win" \
+  -DBUILD_TESTS=OFF \
+  -DBUILD_WSI_XLIB_SUPPORT=OFF \
+  -DBUILD_WSI_XCB_SUPPORT=OFF \
   -DVULKAN_ENABLE_ASM=OFF
 
 cmake --build build-win -j

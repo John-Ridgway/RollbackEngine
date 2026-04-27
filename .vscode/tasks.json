@@ -4,7 +4,7 @@
         {
             "label": "configure-native",
             "type": "shell",
-            "command": "cmake -S . -B build",
+            "command": "cmake -S . -B build -DCMAKE_TOOLCHAIN_FILE=./toolchains/toolchain-linux.cmake",
             "problemMatcher": []
         },
         {
