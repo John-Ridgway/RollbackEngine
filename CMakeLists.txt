@@ -11,7 +11,28 @@ list(APPEND CMAKE_PREFIX_PATH
     "${PROJECT_DEPS_ROOT}/vulkan"
 )
 
-add_executable(RollbackEngine main.cpp)
+set(IMGUI_DIR ${PROJECT_DEPS_ROOT}/imgui/include)
+
+set(IMGUI_SRC
+    ${IMGUI_DIR}/imgui.cpp
+    ${IMGUI_DIR}/imgui_demo.cpp
+    ${IMGUI_DIR}/imgui_draw.cpp
+    ${IMGUI_DIR}/imgui_tables.cpp
+    ${IMGUI_DIR}/imgui_widgets.cpp
+
+    ${IMGUI_DIR}/backends/imgui_impl_sdl3.cpp
+    ${IMGUI_DIR}/backends/imgui_impl_vulkan.cpp
+)
+
+add_executable(RollbackEngine 
+    main.cpp
+    ${IMGUI_SRC}
+)
+
+target_include_directories(RollbackEngine PRIVATE
+    ${IMGUI_DIR}
+    ${IMGUI_DIR}/backends
+)
 
 find_package(SDL3 REQUIRED)
 find_package(VulkanLoader REQUIRED)

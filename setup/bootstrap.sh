@@ -10,9 +10,12 @@ VENDOR_DIR="$ROOT_DIR/vendor"
 
 SDL_PREFIX="$DEPS_DIR/sdl"
 VULKAN_PREFIX="$DEPS_DIR/vulkan"
+IMGUI_PREFIX="$DEPS_DIR/imgui"
 
 mkdir -p "$DEPS_DIR"
 mkdir -p "$VENDOR_DIR"
+mkdir -p "$VENDOR_DIR"
+mkdir -p "$IMGUI_PREFIX/include/backends"
 
 echo "======================================"
 echo " Project-local SDK bootstrap starting "
@@ -67,6 +70,18 @@ cmake --build build-win -j
 cmake --install build-win
 
 cd "$VENDOR_DIR"
+
+echo "== Retrieving ImGui Dependencies =="
+if [ ! -d imgui ]; then
+  git clone -b docking --single-branch https://github.com/ocornut/imgui.git
+fi
+
+cp ./imgui/*.h $IMGUI_PREFIX/include
+cp ./imgui/*.cpp $IMGUI_PREFIX/include
+cp ./imgui/backends/imgui_impl_vulkan.h $IMGUI_PREFIX/include/backends
+cp ./imgui/backends/imgui_impl_vulkan.cpp $IMGUI_PREFIX/include/backends
+cp ./imgui/backends/imgui_impl_sdl3.h $IMGUI_PREFIX/include/backends
+cp ./imgui/backends/imgui_impl_sdl3.cpp $IMGUI_PREFIX/include/backends
 
 # --------------------------------------
 # Vulkan Loader
