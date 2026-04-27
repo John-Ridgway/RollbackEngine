@@ -29,21 +29,13 @@
             "dependsOn": "configure-windows-cross"
         },
         {
-            "label": "copy-sdl3-dll",
-            "type": "shell",
-            "command": "cp ./deps/sdl/win/bin/SDL3.dll ./build-win",
-            "problemMatcher": [],
-            "dependsOn": "build-windows-cross"
-        },
-        {
             "label": "build-all",
             "dependsOrder": "sequence",
             "dependsOn": [
                 "configure-native",
                 "build-native",
                 "configure-windows-cross",
-                "build-windows-cross",
-                "copy-sdl3-dll"
+                "build-windows-cross"
             ],
             "problemMatcher": []
         }
