@@ -132,6 +132,8 @@ sudo apt-get autoremove -y
 
 cd "$ROOT_DIR"
 
+rm -rf ./vendor
+
 echo "======================================"
 echo " Bootstrap complete "
 echo "======================================"
